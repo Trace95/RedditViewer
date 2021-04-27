@@ -11,7 +11,7 @@ class EntriesRepo {
     }
 
     fun createUri(): String {
-        return "r/pics/hot.json?limit=10"
+        return "r/pics/hot.json"
     }
 
 

@@ -1,7 +1,6 @@
 package academy.learnprogramming.redditviewer.api
 
 import academy.learnprogramming.redditviewer.util.Constants.Companion.BASE_URL
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

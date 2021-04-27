@@ -5,6 +5,11 @@ class Constants {
         const val BASE_URL = "https://www.reddit.com/"
     }
 
+
+    // https://www.reddit.com/.json
+
     // https://www.reddit.com/r/pics/hot.json?limit=10
+
+    // https://www.reddit.com/r/pics/hot.json
 
 }
