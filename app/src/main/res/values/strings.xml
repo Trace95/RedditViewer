@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RedditViewer</string>
+    <string name="view_post_image_description">Download Reddit Photo</string>
 </resources>

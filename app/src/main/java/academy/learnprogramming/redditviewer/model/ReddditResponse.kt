@@ -1,14 +1,17 @@
 package academy.learnprogramming.redditviewer.model
 import com.google.gson.annotations.SerializedName
 
-data class ListingResponseContainer(
+data class RedditResponse(
     val kind: String,
-    val data: Data?)
+    val data: Data?
+    )
 
 data class Data(
-    val children: Array<Something>)
+    @SerializedName("dist")
+    val dataArraySize: Int?,
+    val children: Array<RedditEntryContainer>)
 
-data class Something(
+data class RedditEntryContainer(
     val kind : String,
     val data: RedditEntry
 )
