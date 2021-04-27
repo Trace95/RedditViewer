@@ -18,10 +18,22 @@ class MainActivity : AppCompatActivity() {
         CoroutineScope(IO).launch {
             val repository = EntriesRepo()
             try{
-                repository.getRedditEntries(repository.createUri())
+                repository.getRedditEntries(repository.createUriExtention())
+               val redditResponse = repository.getRedditEntries(repository.createUriExtention())
+
+                // this should print "listing"
+                    Log.d("callum",redditResponse.kind)
+
+                // this should print 65330
+                Log.d("callum",redditResponse.data!!.children[4].upVotes.toString())
+
+
+
+
             }catch (e:Exception){
                 Log.d("callum",e.toString())
             }
+
         }
 
     }

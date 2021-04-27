@@ -10,7 +10,7 @@ class EntriesRepo {
         return NetworkService.redditService.getRedditPosts(urlExtensions)
     }
 
-    fun createUri(): String {
+    fun createUriExtention(): String {
         return "r/pics/hot.json"
     }
 
