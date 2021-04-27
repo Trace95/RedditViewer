@@ -1,12 +1,12 @@
 package academy.learnprogramming.redditviewer.repository
 
 import academy.learnprogramming.redditviewer.api.NetworkService
-import academy.learnprogramming.redditviewer.model.RedditResponse
+import academy.learnprogramming.redditviewer.model.ListingResponseContainer
 
 
 class EntriesRepo {
 
-    suspend fun getRedditEntries(urlExtensions: String): RedditResponse {
+    suspend fun getRedditEntries(urlExtensions: String): ListingResponseContainer {
         return NetworkService.redditService.getRedditPosts(urlExtensions)
     }
 
