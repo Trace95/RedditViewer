@@ -20,14 +20,7 @@ class MainActivity : AppCompatActivity() {
             try{
                 repository.getRedditEntries(repository.createUriExtention())
                val redditResponse = repository.getRedditEntries(repository.createUriExtention())
-
-                // this should print "listing"
-                    Log.d("callum",redditResponse.kind)
-
-                // this should print 65330
-                Log.d("callum",redditResponse.data!!.children[4].upVotes.toString())
-
-
+                Log.d("callum",redditResponse.data!!.children[0].data.title.toString())
 
 
             }catch (e:Exception){

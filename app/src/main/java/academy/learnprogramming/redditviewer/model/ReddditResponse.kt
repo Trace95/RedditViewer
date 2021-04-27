@@ -9,7 +9,6 @@ data class RedditEntry(
     @SerializedName("ups")
     val upVotes: Int?,
     val url: String?
-
 )
 
 data class RedditResponse(
@@ -17,4 +16,9 @@ data class RedditResponse(
     val data: Data?)
 
 data class Data(
-    val children: Array<RedditEntry>)
+    val children: Array<Something>)
+
+data class Something(
+    val kind : String,
+    val data: RedditEntry
+)
