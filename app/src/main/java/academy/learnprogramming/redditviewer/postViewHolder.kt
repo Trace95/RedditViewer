@@ -11,4 +11,6 @@ class PostViewHolder(val wholePostView: ViewPostWholeBinding) :
         wholePostView.viewPostLayout.postTitle.text = postTitle
     }
 
+
+
 }
