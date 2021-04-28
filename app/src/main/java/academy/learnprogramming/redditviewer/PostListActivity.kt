@@ -2,10 +2,8 @@ package academy.learnprogramming.redditviewer
 
 
 import academy.learnprogramming.redditfeed.PostListAdapter
-import academy.learnprogramming.redditviewer.api.RedditService
 import academy.learnprogramming.redditviewer.databinding.ActivityPostlistBinding
 import academy.learnprogramming.redditviewer.model.RedditEntry
-import academy.learnprogramming.redditviewer.model.RedditResponse
 import academy.learnprogramming.redditviewer.repository.EntriesRepo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -37,17 +35,19 @@ class PostListActivity : AppCompatActivity() {
             val redditResponse = repository.getRedditEntries(repository.createUriExtention())
             val redditEntryArray = ArrayList<RedditEntry>()
 
-            val redditEntry = RedditEntry(
-                redditResponse.data!!.children[0].data.subredditName,
-                redditResponse.data.children[0].data.thumbnail,
-                redditResponse.data.children[0].data.title,
-                redditResponse.data.children[0].data.upVotes,
-                redditResponse.data.children[0].data.url
-            )
-            redditEntryArray.add(redditEntry)
+            var i = 0
+            for ( children in redditResponse.data!!.children){
 
-
-
+                val redditEntry = RedditEntry(
+                    redditResponse.data!!.children[i].data.subredditName,
+                    redditResponse.data.children[i].data.thumbnail,
+                    redditResponse.data.children[i].data.title,
+                    redditResponse.data.children[i].data.upVotes,
+                    redditResponse.data.children[i].data.url
+                )
+                redditEntryArray.add(redditEntry)
+                i++
+            }
 
         }
 
