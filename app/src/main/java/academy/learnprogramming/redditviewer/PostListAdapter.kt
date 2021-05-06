@@ -39,7 +39,7 @@ class PostListAdapter(private var redditEntryList: List<RedditEntry>) :
     override fun getItemCount(): Int {
         return redditEntryList.size
     }
-    fun loadNewData(newRedditEntries: List<RedditEntry>) {
+    fun updateRecyclerView(newRedditEntries: List<RedditEntry>) {
         redditEntryList = newRedditEntries
         notifyDataSetChanged()
     }
