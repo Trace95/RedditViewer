@@ -2,16 +2,10 @@ package academy.learnprogramming.redditviewer
 
 import academy.learnprogramming.redditfeed.PostListAdapter
 import academy.learnprogramming.redditviewer.databinding.ActivityPostlistBinding
-import academy.learnprogramming.redditviewer.model.RedditEntry
-import academy.learnprogramming.redditviewer.repository.EntriesRepo
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.launch
 
 
 class PostListActivity : AppCompatActivity() {
@@ -32,14 +26,8 @@ class PostListActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
-        var redditEntryArray = ArrayList<RedditEntry>();
-        CoroutineScope(IO).launch {
-            val repository = EntriesRepo()
-            val redditResponse = repository.getRedditEntries(repository.createUriExtention())
-            redditEntryArray = viewModel.unboxRedditResponse(redditResponse)
-        }
-
-        redditRecyclerViewAdapter.updateRecyclerView(redditEntryArray)
+        viewModel.entriesLiveData.observe(this, androidx.lifecycle.Observer {
+            redditRecyclerViewAdapter.updateRecyclerView(it)
+        })
     }
 }
