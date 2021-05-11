@@ -3,24 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingTop="8dp">
 
     <TextView
         android:id="@+id/postTitle"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_weight="2"
+
         tools:text="titleOfPost" />
 
     <ImageView
         android:id="@+id/thumbnail"
-        android:layout_width="7dp"
-        android:layout_height="120dp"
-        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
         android:contentDescription="@string/view_post_image_description"
-        android:scaleType="fitStart"
+        android:scaleType="centerCrop"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 </LinearLayout>

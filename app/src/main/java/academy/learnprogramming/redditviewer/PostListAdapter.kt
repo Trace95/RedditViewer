@@ -21,20 +21,8 @@ class PostListAdapter(private var redditEntryList: List<RedditEntry>) :
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         Log.d("Callum", "onBindViewHolder called")
-        if (redditEntryList.isEmpty()) {
-            holder.wholePostView.viewPostLayout.thumbnail.setImageResource(R.drawable.placeholder)
-            holder.wholePostView.subredditName.setText(R.string.missing_subreddit)
-        } else {
-            val redditEntry = redditEntryList[position]
-            Picasso.with(holder.wholePostView.viewPostLayout.thumbnail.context)
-                .load(redditEntry.url)
-                .placeholder(R.drawable.placeholder)
-                .error(R.drawable.placeholder)
-                .into(holder.wholePostView.viewPostLayout.thumbnail)
-        }
         holder.bind(
-            subredditName = redditEntryList[position].subredditName.toString(),
-            postTitle = redditEntryList[position].title.toString()
+            redditEntryList[position]
         )
     }
 

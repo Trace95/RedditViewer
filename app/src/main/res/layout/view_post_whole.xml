@@ -27,9 +27,24 @@
                 android:layout_margin="8dp"
                 tools:text="subredditName" />
 
-            <include
-                android:id="@+id/view_post_layout"
-                layout="@layout/view_post" />
+            <TextView
+                android:paddingTop="8dp"
+                android:id="@+id/postTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+
+                tools:text="titleOfPost" />
+
+            <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/view_post_image_description"
+                android:scaleType="centerCrop"
+                app:srcCompat="@android:drawable/ic_menu_gallery" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

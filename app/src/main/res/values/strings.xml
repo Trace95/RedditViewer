@@ -2,4 +2,5 @@
     <string name="app_name">RedditViewer</string>
     <string name="view_post_image_description">Download Reddit Photo</string>
     <string name="missing_subreddit">There is no subreddit at this address</string>
+    <string name="action_search">Search</string>
 </resources>
