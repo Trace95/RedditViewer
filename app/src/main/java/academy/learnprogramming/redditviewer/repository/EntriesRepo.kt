@@ -35,7 +35,9 @@ class EntriesRepo {
                 redditResponse.data.children[i].data.title,
                 redditResponse.data.children[i].data.upVotes,
                 redditResponse.data.children[i].data.url,
-                redditResponse.data.children[i].data.post_hint
+                redditResponse.data.children[i].data.post_hint,
+                redditResponse.data.children[i].data.author,
+                redditResponse.data.children[i].data.id
             )
             redditEntryArray.add(redditEntry)
             i++

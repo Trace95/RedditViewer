@@ -26,6 +26,8 @@ class PostViewHolder(val wholePostView: ViewPostWholeBinding) :
 
         wholePostView.subredditName.text = redditEntry.subredditName
         wholePostView.postTitle.text = redditEntry.title
+        wholePostView.author.text = "Posted by u/" + redditEntry.author
+        wholePostView.upvotes.text= "Upvotes: " + redditEntry.upVotes
     }
 
 
