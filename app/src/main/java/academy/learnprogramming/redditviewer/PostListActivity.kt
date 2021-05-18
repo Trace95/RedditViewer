@@ -4,11 +4,9 @@ import academy.learnprogramming.redditfeed.PostListAdapter
 import academy.learnprogramming.redditviewer.databinding.ActivityPostlistBinding
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 
 
