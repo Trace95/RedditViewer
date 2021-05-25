@@ -1,7 +1,7 @@
 package academy.learnprogramming.redditfeed
 
 import academy.learnprogramming.redditviewer.R
-import academy.learnprogramming.redditviewer.databinding.ViewPostWholeBinding
+import academy.learnprogramming.redditviewer.databinding.ViewPostBinding
 import academy.learnprogramming.redditviewer.model.RedditEntry
 import android.util.Log
 import android.view.View
@@ -10,7 +10,7 @@ import com.squareup.picasso.Picasso
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-class PostViewHolder(val wholePostView: ViewPostWholeBinding) :
+class PostViewHolder(val wholePostView: ViewPostBinding) :
     RecyclerView.ViewHolder(wholePostView.root) {
 
     fun bind(redditEntry: RedditEntry) {

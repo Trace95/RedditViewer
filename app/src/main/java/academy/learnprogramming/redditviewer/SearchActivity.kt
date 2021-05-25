@@ -7,12 +7,18 @@ import android.app.SearchManager
 import android.content.Context
 import android.view.Menu
 import android.widget.SearchView
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class SearchActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySearchBinding
     private var searchView: SearchView? = null
-
+    @Inject
+    lateinit var dataManager: DataManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
@@ -27,6 +33,24 @@ class SearchActivity : AppCompatActivity() {
         searchView?.setSearchableInfo(searchableInfo)
         searchView?.queryHint = "Enter Subreddit"
         searchView?.isIconified = false
+
+        searchView?.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                GlobalScope.launch {
+                    query?.let {
+                        dataManager.storeQuery(query)
+                    }
+                }
+                finish()
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
+
+
         return true
     }
 

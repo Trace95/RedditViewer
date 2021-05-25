@@ -13,16 +13,16 @@ class EntriesRepo {
         return NetworkService.redditService.getRedditPosts(urlExtensions)
     }
 
-    suspend fun getRedditEntries(): ArrayList<RedditEntry> {
-        Log.d("Callum","URL:" + BASE_URL + createUriExtention())
-        return unboxRedditResponse(getRedditResponse(createUriExtention()))
+    suspend fun getRedditEntries(query: String?): ArrayList<RedditEntry> {
+        Log.d("Callum", "URL:" + BASE_URL + createUriExtention(query))
+        return unboxRedditResponse(getRedditResponse(createUriExtention(query)))
     }
 
-    fun createUriExtention(): String {
-        // "r/pics/hot.json"
-        // default: "/.json"
-        // TODO: 11/05/2021 create URI function using subreddit, and relevance type
-        return "/.json"
+    fun createUriExtention(query: String?): String {
+        return if (query != null) {
+            "r/$query/.json"
+        } else
+            "/.json"
     }
 
     fun unboxRedditResponse(redditResponse: RedditResponse): ArrayList<RedditEntry> {
@@ -41,7 +41,7 @@ class EntriesRepo {
             )
             redditEntryArray.add(redditEntry)
             i++
-            Log.d("Callum",redditEntry.toString())
+            Log.d("Callum", redditEntry.toString())
         }
         return redditEntryArray
     }

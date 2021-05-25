@@ -54,6 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     tools:text="titleOfPost" />
@@ -78,8 +79,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
                         android:textColor="@color/light_grey"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         tools:text="upvotes: 20XX" />
 
                     <TextView
@@ -89,7 +91,7 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:paddingRight="16dp"
-                        android:text="Comments"
+                        android:paddingLeft="16dp"
                         android:textColor="@color/light_grey"
                         android:textSize="16sp"
                         tools:text="Comments" />
