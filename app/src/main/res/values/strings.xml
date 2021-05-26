@@ -3,4 +3,7 @@
     <string name="view_post_image_description">Download Reddit Photo</string>
     <string name="missing_subreddit">There is no subreddit at this address</string>
     <string name="action_search">Search</string>
+    <string name="searchable_hint">enter subreddit</string>
+    <string name="title_activity_search">Search</string>
+    <string name="posted_by_user">Posted by u/ %s</string>
 </resources>

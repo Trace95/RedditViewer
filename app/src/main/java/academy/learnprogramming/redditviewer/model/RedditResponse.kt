@@ -24,5 +24,7 @@ data class RedditEntry(
     @SerializedName("ups")
     val upVotes: Int?,
     val url: String?,
-    val post_hint: String?
+    val post_hint: String?,
+    val author: String?,
+    val id: String?
 )

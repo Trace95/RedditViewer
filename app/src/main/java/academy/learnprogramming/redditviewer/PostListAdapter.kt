@@ -1,21 +1,20 @@
 package academy.learnprogramming.redditfeed
 
 
-import academy.learnprogramming.redditviewer.R
-import academy.learnprogramming.redditviewer.databinding.ViewPostWholeBinding
+import academy.learnprogramming.redditviewer.databinding.ViewPostBinding
 import academy.learnprogramming.redditviewer.model.RedditEntry
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
+
 
 class PostListAdapter(private var redditEntryList: List<RedditEntry>) :
     RecyclerView.Adapter<PostViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         Log.d("Callum", "onCreateViewHolder called")
-        val view = ViewPostWholeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view = ViewPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PostViewHolder(view)
     }
 
