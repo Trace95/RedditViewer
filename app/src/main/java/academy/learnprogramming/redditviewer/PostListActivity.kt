@@ -20,6 +20,7 @@ class PostListActivity : BaseActivity() {
     private lateinit var binding: ActivityPostlistBinding
     private val viewModel: PostListActivityViewModel by viewModels()
     private val redditRecyclerViewAdapter = PostListAdapter(ArrayList())
+
     @Inject
     lateinit var dataManager: DataManager
 
@@ -31,16 +32,21 @@ class PostListActivity : BaseActivity() {
         binding.postListRecyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.postListRecyclerView.adapter = redditRecyclerViewAdapter
+
+        val query = dataManager.queryFlow.asLiveData().observe(this) { it ->
+            viewModel.getRedditEntryData(it)
+            Log.d("JKM", "query is : $it")
+        }
+
+        viewModel.entriesLiveData.observe(this, androidx.lifecycle.Observer {
+            redditRecyclerViewAdapter.updateRecyclerView(it)
+            Log.d("Callum", "Query is: $query")
+        })
     }
 
     override fun onResume() {
-        Log.d("Callum","onResume called")
+        Log.d("Callum", "onResume called")
         super.onResume()
-        viewModel.entriesLiveData.observe(this, androidx.lifecycle.Observer {
-            redditRecyclerViewAdapter.updateRecyclerView(it)
-            val query = dataManager.queryFlow.asLiveData().value
-            Log.d("Callum","Query is: $query")
-        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -61,8 +67,6 @@ class PostListActivity : BaseActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-
 
 
 }

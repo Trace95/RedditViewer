@@ -16,6 +16,7 @@ class PostViewHolder(val wholePostView: ViewPostBinding) :
     fun bind(redditEntry: RedditEntry) {
 
         if (redditEntry.post_hint.equals("image", true)) {
+            wholePostView.thumbnail.visibility = View.VISIBLE
             Picasso.with(wholePostView.thumbnail.context)
                 .load(redditEntry.url)
                 .placeholder(R.drawable.placeholder)
@@ -33,8 +34,6 @@ class PostViewHolder(val wholePostView: ViewPostBinding) :
         if (redditEntry.post_hint.equals("hosted:video", true)) {
             wholePostView.postTitle.text = wholePostView.postTitle.text as String? + " \n[VIDEO]"
         }
-
-
     }
 
     fun upvoteScale(upvotes: String): String {

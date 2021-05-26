@@ -21,7 +21,7 @@ class DataManager @Inject constructor(val dataStore: DataStore<Preferences>) {
     }
 
     val queryFlow: kotlinx.coroutines.flow.Flow<String> = dataStore.data.map {
-        it[QUERY_KEY] ?: ""
+        it[QUERY_KEY] ?: "all"
     }
 
 }

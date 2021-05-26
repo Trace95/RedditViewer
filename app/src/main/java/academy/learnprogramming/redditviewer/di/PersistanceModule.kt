@@ -19,7 +19,7 @@ object PersistanceModule {
     @Singleton
     @Provides
     fun provideDatastore(@ApplicationContext context: Context): DataStore<Preferences> {
-        return context.createDataStore(name = "query")
+        return context.createDataStore(name = "queryDataStore")
     }
 
     @Singleton

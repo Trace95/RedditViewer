@@ -17,6 +17,7 @@ class SearchActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySearchBinding
     private var searchView: SearchView? = null
+
     @Inject
     lateinit var dataManager: DataManager
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +26,7 @@ class SearchActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_search,menu)
+        menuInflater.inflate(R.menu.menu_search, menu)
 
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         searchView = menu.findItem(R.id.app_bar_search).actionView as SearchView
@@ -34,7 +35,7 @@ class SearchActivity : AppCompatActivity() {
         searchView?.queryHint = "Enter Subreddit"
         searchView?.isIconified = false
 
-        searchView?.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 GlobalScope.launch {
                     query?.let {
@@ -53,8 +54,6 @@ class SearchActivity : AppCompatActivity() {
 
         return true
     }
-
-
 
 
 }
